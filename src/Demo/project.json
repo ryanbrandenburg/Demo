@@ -1,0 +1,53 @@
+﻿{
+  "version": "1.0.0-*",
+  "compilationOptions": {
+    "emitEntryPoint": true,
+    "warningsAsErrors": true,
+    "preserveCompilationContext": true
+  },
+
+  "dependencies": {
+    "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-20093",
+    "Microsoft.AspNetCore.IISPlatformHandler": "1.0.0-rc2-20093",
+    "Microsoft.AspNetCore.Localization": "1.0.0-rc2-20093",
+    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-20093",
+    "Microsoft.AspNetCore.Mvc.TagHelpers": "1.0.0-rc2-20093",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-20093",
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0-rc2-20093",
+    "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc2-20093",
+    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-20093",
+    "Microsoft.Extensions.Logging": "1.0.0-rc2-20093",
+    "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-20093",
+    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-20093"
+  },
+  "tools": {
+    "dotnet-razor-tooling": "1.0.0-rc2-20093"
+  },
+  "commands": {
+    "web": "Demo"
+  },
+
+  "frameworks": {
+    "netstandardapp1.5": {
+      "imports": [
+        "dnxcore50",
+        "portable-net451+win8"
+      ],
+      "dependencies": {
+        "NETStandard.Library": "1.0.0-rc2-23826"
+      }
+    }
+  },
+
+  "exclude": [
+    "wwwroot",
+    "node_modules"
+  ],
+  "publishExclude": [
+    "**.user",
+    "**.vspscc"
+  ],
+  "scripts": {
+    "prepublish": [ "npm install", "bower install", "gulp clean", "gulp min" ]
+  }
+}
