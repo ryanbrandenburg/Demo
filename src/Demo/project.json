@@ -7,6 +7,7 @@
   },
 
   "dependencies": {
+    "Microsoft.EntityFrameworkCore.InMemory": "1.0.0-rc2-20093",
     "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-20093",
     "Microsoft.AspNetCore.IISPlatformHandler": "1.0.0-rc2-20093",
     "Microsoft.AspNetCore.Localization": "1.0.0-rc2-20093",

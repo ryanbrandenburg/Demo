@@ -30,7 +30,10 @@ namespace Demo
             services.AddMvc()
                 .AddViewLocalization();
 
-            services.AddTransient<IStringLocalizerFactory, Localization.DBStringLocalizerFactory>();
+            //EF String Localizer Factory
+            services.AddSingleton<IStringLocalizerFactory, Localization.EntityFramework.EFStringLocalizerFactory>();
+            //Custom String Localizer Factory
+            //services.AddSingleton<IStringLocalizerFactory, Localization.DBStringLocalizerFactory>();
             services.AddSingleton<Localization.LocalizationService>();
         }
 
