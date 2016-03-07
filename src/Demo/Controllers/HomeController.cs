@@ -8,16 +8,19 @@ namespace Demo.Controllers
 {
     public class HomeController : Controller
     {
-        Localization.LocalizationService loc;
+        Localization.LocalizationService LocalizationService;
 
-        public HomeController(Localization.LocalizationService _loc)
+        public HomeController(Localization.LocalizationService _locService)
         {
-            loc = _loc;
+            LocalizationService = _locService;
         }
 
         public async Task<IActionResult> Index()
         {
-            ViewData["Language"] = loc.Get("KEY:Test", System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
+            //Set a Viewdata var in order to comprare what string should be inside the view,
+            //because from controller, CurrentUICulture is always correct but view CurrentUICulture can be default.
+            ViewData["ExpectedString"] = LocalizationService.Get("KEY:Test", System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
+            ViewData["ControllerCurrentUICulture"] = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
             //Simulate small job
             await Task.Delay(500);
             return View();
