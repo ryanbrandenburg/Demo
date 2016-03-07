@@ -17,33 +17,18 @@ namespace Demo.Localization.EntityFramework
             _db.AddRange(
                 new Culture
                 {
-                    Name = "en-US",
+                    Name = "en",
                     Resources = new List<Resource>() { new Resource { Key = "Hello", Value = "Hello" } }
                 },
                 new Culture
                 {
-                    Name = "fr-FR",
+                    Name = "fr",
                     Resources = new List<Resource>() { new Resource { Key = "Hello", Value = "Bonjour" } }
                 },
                 new Culture
                 {
-                    Name = "es-ES",
-                    Resources = new List<Resource>() { new Resource { Key = "Hello", Value = "Hola" } }
-                },
-                new Culture
-                {
-                    Name = "jp-JP",
-                    Resources = new List<Resource>() { new Resource { Key = "Hello", Value = "こんにちは" } }
-                },
-                new Culture
-                {
-                    Name = "zh",
-                    Resources = new List<Resource>() { new Resource { Key = "Hello", Value = "您好" } }
-                },
-                new Culture
-                {
-                    Name = "zh-CN",
-                    Resources = new List<Resource>() { new Resource { Key = "Hello", Value = "您好" } }
+                    Name = "pl",
+                    Resources = new List<Resource>() { new Resource { Key = "Hello", Value = "Dzień dobry" } }
                 }
                 );
             _db.SaveChanges();

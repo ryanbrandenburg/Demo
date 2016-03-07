@@ -56,7 +56,7 @@ namespace Demo
 
             app.UseStaticFiles();
 
-            // Configure the Localization middleware after ASP.NET Identity has been configured
+            // Set options here to change middleware behavior
             var requestLocalizationOptions = new RequestLocalizationOptions
             {
                 SupportedCultures = new List<CultureInfo>()
