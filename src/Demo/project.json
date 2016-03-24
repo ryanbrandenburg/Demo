@@ -7,22 +7,22 @@
   },
 
   "dependencies": {
-    "Microsoft.EntityFrameworkCore.InMemory": "1.0.0-rc2-20093",
-    "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-20093",
-    "Microsoft.AspNetCore.IISPlatformHandler": "1.0.0-rc2-20093",
-    "Microsoft.AspNetCore.Localization": "1.0.0-rc2-20093",
-    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-20093",
-    "Microsoft.AspNetCore.Mvc.TagHelpers": "1.0.0-rc2-20093",
-    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-20093",
-    "Microsoft.AspNetCore.StaticFiles": "1.0.0-rc2-20093",
-    "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc2-20093",
-    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-20093",
-    "Microsoft.Extensions.Logging": "1.0.0-rc2-20093",
-    "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-20093",
-    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-20093"
+    "Microsoft.EntityFrameworkCore.InMemory": "1.0.0-rc2-20270",
+    "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-20270",
+    "Microsoft.AspNetCore.IISPlatformHandler": "1.0.0-rc2-20270",
+    "Microsoft.AspNetCore.Localization": "1.0.0-rc2-20270",
+    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-20270",
+    "Microsoft.AspNetCore.Mvc.TagHelpers": "1.0.0-rc2-20270",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-20270",
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0-rc2-20270",
+    "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc2-20270",
+    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-20270",
+    "Microsoft.Extensions.Logging": "1.0.0-rc2-20270",
+    "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-20270",
+    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-20270"
   },
   "tools": {
-    "dotnet-razor-tooling": "1.0.0-rc2-20093"
+    "dotnet-razor-tooling": "1.0.0-rc2-20270"
   },
   "commands": {
     "web": "Demo"
