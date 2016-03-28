@@ -7,6 +7,7 @@ using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 
 namespace Demo
 {
@@ -89,7 +90,8 @@ namespace Demo
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
-                .UseDefaultConfiguration(args)
+   		.UseContentRoot(Directory.GetCurrentDirectory()) 
+                .UseDefaultHostingConfiguration(args)
                 .UseServer("Microsoft.AspNetCore.Server.Kestrel")
                 .UseUrls("http://*:5000")
                 .UseStartup<Startup>()
