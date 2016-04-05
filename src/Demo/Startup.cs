@@ -35,7 +35,6 @@ namespace Demo
             services.AddSingleton<IStringLocalizerFactory, Localization.EntityFramework.EFStringLocalizerFactory>();
             //Custom String Localizer Factory
             //services.AddSingleton<IStringLocalizerFactory, Localization.DBStringLocalizerFactory>();
-            services.AddSingleton<Localization.LocalizationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

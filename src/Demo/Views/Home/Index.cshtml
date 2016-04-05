@@ -1,8 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
 <p>Localized string from View : @Localizer.GetString("Hello")</p>
 <p>Localized string from Controller : @ViewData["ExpectedString"]</p>
 <p>CurrentUICulture from View : @System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName</p>
 <p>CurrentUICulture from Controller : @ViewData["ControllerCurrentUICulture"]</p>
+<p>CurrentUICulture from RequestCultureFeature : @ViewData["HttpContextUiCulture"]</p>
+<p>Thread Id from Controller : @ViewData["ControllerThreadId"]</p>
+<p>Thread Id from View : @System.Threading.Thread.CurrentThread.ManagedThreadId</p>

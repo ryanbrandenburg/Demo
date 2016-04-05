@@ -13,9 +13,18 @@ namespace Demo.Localization.EntityFramework
     public class EFStringLocalizer : IStringLocalizer
     {
         private readonly LocalizationDBContext _db;
+	private readonly CultureInfo _culture;
 
-        public EFStringLocalizer(LocalizationDBContext db)
+        private CultureInfo Culture { get { 
+            if(_culture != null)
+            {
+	        System.Console.WriteLine("CULTURE SAVED");
+            }
+            return _culture ?? CultureInfo.CurrentUICulture; } }
+
+        public EFStringLocalizer(LocalizationDBContext db, CultureInfo culture = null)
         {
+            _culture = culture;
             _db = db;
         }
 
@@ -40,23 +49,23 @@ namespace Demo.Localization.EntityFramework
 
         public IStringLocalizer WithCulture(CultureInfo culture)
         {
-            CultureInfo.DefaultThreadCurrentCulture = culture;
-            return new EFStringLocalizer(_db);
+            return new EFStringLocalizer(_db, culture);
         }
 
         public IEnumerable<LocalizedString> GetAllStrings(bool includeAncestorCultures)
         {
             return _db.Resources
                 .Include(r => r.Culture)
-                .Where(r => r.Culture.Name == CultureInfo.CurrentCulture.Name)
+                .Where(r => r.Culture.Name == Culture.Name)
                 .Select(r => new LocalizedString(r.Key, r.Value, true));
         }
 
         private string GetString(string name)
         {
+	    System.Console.WriteLine(name + " " + Culture.Name);
             return _db.Resources
                 .Include(r => r.Culture)
-                .Where(r => r.Culture.Name == CultureInfo.CurrentCulture.Name)
+                .Where(r => r.Culture.Name == Culture.Name)
                 .FirstOrDefault(r => r.Key == name)?.Value;
         }
     }

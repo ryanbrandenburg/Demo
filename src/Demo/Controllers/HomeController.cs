@@ -1,32 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
 
 namespace Demo.Controllers
 {
     public class HomeController : Controller
-    {
-        Localization.LocalizationService LocalizationService;
+    {       
         IStringLocalizer SR;
 
-        public HomeController(Localization.LocalizationService _locService, IStringLocalizerFactory SRFactory)
+        public HomeController(IStringLocalizerFactory SRFactory)
         {
-            LocalizationService = _locService;
             SR = SRFactory.Create(null);
         }
 
         public async Task<IActionResult> Index()
         {
+            var uiCulture =  this.HttpContext.Features.Get<IRequestCultureFeature>()?.RequestCulture?.UICulture;
             //Set a Viewdata var in order to comprare what string should be inside the view,
             //because from controller, CurrentUICulture is always correct but view CurrentUICulture can be default.
             //ViewData["ExpectedString"] = LocalizationService.Get("KEY:Test", System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             //Using EntityFramework String Localizer
             ViewData["ExpectedString"] = SR["Hello"];
             ViewData["ControllerCurrentUICulture"] = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
-            //Simulate small job
+            ViewData["HttpContextUiCulture"] = uiCulture.TwoLetterISOLanguageName;
+            var threadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
+            ViewData["ControllerThreadId"] = threadId;            
             await Task.Delay(500);
             return View();
         }
